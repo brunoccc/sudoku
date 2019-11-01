@@ -46,8 +46,8 @@ In case you use Microsoft Visual Studio Code, you will find the configuration fi
 
 Alternatively, you can use `gradle`:
 
-`gradle tests` Run tests
-`gradle run` Run the example app
+* `gradle tests` Run tests
+* `gradle run` Run the example app
 
 Or it can be run from the command line with something like:
 
