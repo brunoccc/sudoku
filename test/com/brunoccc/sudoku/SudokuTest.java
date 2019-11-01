@@ -1,33 +1,97 @@
-// import org.junit.*;
-// import static org.junit.Assert.*;
+package com.brunoccc.sudoku;
+
+import org.junit.*;
+import static org.junit.Assert.*;
  
-// public class SudokuTest {
- 
-//     /**
-//      * Sets up the test fixture. 
-//      * (Called before every test case method.)
-//      */
-//     @Before
-//     public void setUp() {
-//         emptyList = new java.util.ArrayList();
-//     }
- 
-//     /**
-//      * Tears down the test fixture. 
-//      * (Called after every test case method.)
-//      */
-//     @After
-//     public void tearDown() {
-//         emptyList = null;
-//     }
-    
-//     @Test
-//     public void testSomeBehavior() {
-//         assertEquals("Empty list should have 0 elements", 0, emptyList.size());
-//     }
- 
-//     @Test(expected=IndexOutOfBoundsException.class)
-//     public void testForException() {
-//         Object o = emptyList.get(0);
-//     }
-// }
+public class SudokuTest {
+
+    @Test
+    public void testEmptyGrid() {
+        int[][] grid = {
+            { 0, 0, 0,   0, 0, 0,    0, 0, 0 },
+            { 0, 0, 0,   0, 0, 0,    0, 0, 0 },
+            { 0, 0, 0,   0, 0, 0,    0, 0, 0 },
+
+            { 0, 0, 0,   0, 0, 0,    0, 0, 0 },
+            { 0, 0, 0,   0, 0, 0,    0, 0, 0 },
+            { 0, 0, 0,   0, 0, 0,    0, 0, 0 },
+
+            { 0, 0, 0,   0, 0, 0,    0, 0, 0 },
+            { 0, 0, 0,   0, 0, 0,    0, 0, 0 },
+            { 0, 0, 0,   0, 0, 0,    0, 0, 0 },
+        };
+
+        final Sudoku sudoku = new Sudoku(grid);
+        assertTrue(sudoku.solve());
+
+        int[][] expected = {
+            { 1, 2, 3,   4, 5, 6,    7, 8, 9 },
+            { 4, 5, 6,   7, 8, 9,    1, 2, 3 },
+            { 7, 8, 9,   1, 2, 3,    4, 5, 6 },
+
+            { 2, 3, 1,   6, 7, 4,    8, 9, 5 },
+            { 8, 7, 5,   9, 1, 2,    3, 6, 4 },
+            { 6, 9, 4,   5, 3, 8,    2, 1, 7 },
+
+            { 3, 1, 7,   2, 6, 5,    9, 4, 8 },
+            { 5, 4, 2,   8, 9, 7,    6, 3, 1 },
+            { 9, 6, 8,   3, 4, 1,    5, 7, 2 },
+        };
+        assertArrayEquals(expected, grid);
+    }
+
+    @Test
+    public void testExample() {
+        int[][] grid = {
+            { 0, 0, 0,   0, 0, 0,    0, 0, 0 },
+            { 0, 0, 0,   0, 0, 3,    0, 8, 5 },
+            { 0, 0, 1,   0, 2, 0,    0, 0, 0 },
+        
+            { 0, 0, 0,   5, 0, 7,    0, 0, 0 },
+            { 0, 0, 4,   0, 0, 0,    1, 0, 0 },
+            { 0, 9, 0,   0, 0, 0,    0, 0, 0 },
+        
+            { 5, 0, 0,   0, 0, 0,    0, 7, 3 },
+            { 0, 0, 2,   0, 1, 0,    0, 0, 0 },
+            { 0, 0, 0,   0, 4, 0,    0, 0, 9 }
+        };
+        
+        final Sudoku sudoku = new Sudoku(grid);
+        assertTrue(sudoku.solve());
+
+        int[][] expected = {
+            { 9, 8, 7,   6, 5, 4,    3, 2, 1 },
+            { 2, 4, 6,   1, 7, 3,    9, 8, 5 },
+            { 3, 5, 1,   9, 2, 8,    7, 4, 6 },
+
+            { 1, 2, 8,   5, 3, 7,    6, 9, 4 },
+            { 6, 3, 4,   8, 9, 2,    1, 5, 7 },
+            { 7, 9, 5,   4, 6, 1,    8, 3, 2 },
+
+            { 5, 1, 9,   2, 8, 6,    4, 7, 3 },
+            { 4, 7, 2,   3, 1, 9,    5, 6, 8 },
+            { 8, 6, 3,   7, 4, 5,    2, 1, 9 },
+        };
+        assertArrayEquals(expected, grid);
+    }
+
+    @Test
+    public void testImpossible() {
+        int[][] grid = {
+            { 0, 0, 0,   0, 6, 0,    0, 0, 0 },
+            { 0, 0, 0,   0, 0, 3,    0, 8, 5 },
+            { 0, 0, 1,   0, 2, 0,    0, 0, 0 },
+        
+            { 0, 0, 0,   5, 0, 7,    0, 0, 0 },
+            { 0, 0, 4,   0, 0, 0,    1, 0, 0 },
+            { 0, 9, 0,   0, 0, 0,    0, 0, 0 },
+        
+            { 5, 0, 0,   0, 0, 0,    0, 7, 3 },
+            { 0, 0, 2,   0, 1, 0,    0, 0, 0 },
+            { 0, 0, 0,   0, 4, 0,    0, 0, 9 }
+        };
+
+        final Sudoku sudoku = new Sudoku(grid);
+        assertFalse(sudoku.solve());
+    }
+}
