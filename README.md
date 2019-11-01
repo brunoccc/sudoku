@@ -44,7 +44,12 @@ https://en.wikipedia.org/wiki/Sudoku_solving_algorithms
 
 In case you use Microsoft Visual Studio Code, you will find the configuration file in the repository, so it should be easy to simply use the integrated debugger.
 
-Alternatively, it can be run from the command line with something like:
+Alternatively, you can use `gradle`:
+
+`gradle tests` Run tests
+`gradle run` Run the example app
+
+Or it can be run from the command line with something like:
 
 ```
   cd src
@@ -52,11 +57,11 @@ Alternatively, it can be run from the command line with something like:
   java com.brunoccc.examples.Main
 ```
 
-Note that the Main file provided is just an example, and this code is meant to be used as a library or as a part of a more complex program.
+Anyway, please note that the Main file provided is just an example, and this code is meant to be used as a library or as a part of a more complex program.
 
 ### TO DO LIST
 
-- [ ] Add tests. I know, I should have written them before, but this code has been written in a sleepless night... 
+- [ ] Improve tests. I know, I should have written them before, but this code has been written in a sleepless night... 
 - [ ] Add more examples, or ability to read a Sudoku from file
 - [ ] Check if the puzzle allows multiple solutions and return this information (could be useful for creating Sudokus)
 - [ ] Return an indicator of the complexity of the Sudoku for a human solver (e.g. EASY/MEDIUM/HARD or any other scale)

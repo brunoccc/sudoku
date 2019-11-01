@@ -1,4 +1,14 @@
-apply plugin: 'java'
+plugins {
+    id "application"
+}
+apply plugin : "java"
+ext {
+   javaMainClass = "com.brunoccc.examples.Main"
+}
+ 
+application {
+    mainClassName = javaMainClass
+}
 
 sourceSets {
    main {
@@ -21,3 +31,4 @@ repositories {
 dependencies {
    testCompile 'junit:junit:4.12'
 }
+
