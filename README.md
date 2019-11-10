@@ -6,6 +6,8 @@ Yes! How exciting?
 
 Well, this is ~~probably~~ not the most efficient algorithm out there, but nevertheless I thought it could be interesting to share it as an open source project.
 
+If you're looking for a JS & NPM version, please check my other repository here: https://github.com/brunoccc/sudokujs
+
 ### HOW DOES IT WORK
 
 It's basically a simple recursive algorithm that:
