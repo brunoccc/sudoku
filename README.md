@@ -25,7 +25,7 @@ I think that the tracking of which values are possible is quite interesting. Ess
 When we write a value in a cell, we set to 0 the corresponding bit for the bitmasks of that row, that column and that block (i.e. "this value is no longer available").  
 When we need to know the possible values for a cell, we simply combine the bitmasks of that row, column and block using a logical `AND`.
 
-<TODO: I promise I will add some pictures>
+![Alternative values and bitmasks](doc/brunoccc-sudoku-1.png?raw=true "Bitmasks")
 
 ### FILES
 
@@ -61,12 +61,12 @@ Anyway, please note that the Main file provided is just an example, and this cod
 
 ### TO DO LIST
 
-- [ ] Improve tests. I know, I should have written them before, but this code has been written in a sleepless night... 
+- [X] Improve tests. I know, I should have written them before, but this code has been written in a sleepless night... 
 - [ ] Add more examples, or ability to read a Sudoku from file
 - [ ] Check if the puzzle allows multiple solutions and return this information (could be useful for creating Sudokus)
 - [ ] Return an indicator of the complexity of the Sudoku for a human solver (e.g. EASY/MEDIUM/HARD or any other scale)
 - [ ] Extend it for Sudokus with different sizes (hence removing all those 9s and 3s in the code :-/ ) 
-- [ ] Add pictures to the readme
+- [X] Add pictures to the readme
 - [ ] Add more todos to this list
 
 
